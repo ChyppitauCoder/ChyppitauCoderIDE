@@ -24,7 +24,7 @@ class IDE(tk.Tk):
         if current_pos != "1.0":
             prev_pos = self.text_area.index(f"{current_pos} - 1 chars")
             self.text_area.delete(prev_pos, current_pos)
-        return "break"  # Отменяем стандартное действие Backspace
+        return "break"  
 
     def move_up(self, event):
         current_line = int(self.text_area.index(tk.INSERT).split(".")[0])
@@ -32,7 +32,7 @@ class IDE(tk.Tk):
             prev_line = current_line - 1
             self.text_area.tag_remove("insert", "1.0", "end")
             self.text_area.mark_set("insert", f"{prev_line}.0")
-        return "break"  # Отменяем стандартное действие стрелки вверх
+        return "break"  
 
     def move_down(self, event):
         current_line = int(self.text_area.index(tk.INSERT).split(".")[0])
@@ -41,7 +41,7 @@ class IDE(tk.Tk):
             next_line = current_line + 1
             self.text_area.tag_remove("insert", "1.0", "end")
             self.text_area.mark_set("insert", f"{next_line}.0")
-        return "break"  # Отменяем стандартное действие стрелки вниз
+        return "break"
 
     def save_file(self):
         content = self.text_area.get("1.0", "end-1c")
